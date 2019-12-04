@@ -29,18 +29,18 @@
 }
 function createFile2() {
 alert("Hola");
-window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,  successCallback2, errorCallback2)
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,  successCallback, errorCallback)
 
-function successCallback2(fs){
+function successCallback(fs){
     alert('file system open: ' + fs.name);
 fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
 
     alert("fileEntry is file?" + fileEntry.isFile.toString());
     // fileEntry.name == 'someFile.txt'
     // fileEntry.fullPath == '/someFile.txt'
-    },errorCallback2);
+    },errorCallback);
 }
-function errorCallback2(error){
+function errorCallback(error){
     alert("ERROR2: "  + error.code)
 }}
 
