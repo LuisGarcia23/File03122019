@@ -27,22 +27,6 @@
    }
 	
 }
-function createFile2() {
-alert("Hola");
-window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,  successCallback, errorCallback)
-
-function successCallback(fs){
-    alert('file system open: ' + fs.name);
-fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
-
-    alert("fileEntry is file?" + fileEntry.isFile.toString());
-    // fileEntry.name == 'someFile.txt'
-    // fileEntry.fullPath == '/someFile.txt'
-    },errorCallback);
-}
-function errorCallback(error){
-    alert("ERROR2: "  + error.code)
-}}
 
 function writeFile() {
    var type = window.TEMPORARY;
@@ -120,8 +104,7 @@ function removeFile() {
   <body onload="onBodyLoad ()">
     <center>
     <img src="images.png"><br>
-    <button id = "createFile" onclick="createFile()">CREATE FILE</button>
-    <button id = "createFile2" onclick="createFile2()">CREATE FILE2</button><br><br>
+    <button id = "createFile" onclick="createFile()">CREATE FILE</button><br><br>
     <button id = "writeFile"  onclick="writeFile()">WRITE FILE</button>
     <button id = "readFile"  onclick="readFile()">READ FILE</button><br><br>
     <button id = "removeFile"  onclick="removeFile()">DELETE FILE</button><br><br>
