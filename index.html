@@ -5,16 +5,16 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" >
     function  onBodyLoad() {
-                documento . addEventListener ( " deviceready " , onDeviceReady, false );
+                documento.addEventListener("deviceready",onDeviceReady,false);
             }
     function  onDeviceReady() {
        alert("La aplicacion esta corriendo")
     }
 
     function createFile() {
-   var type = window.PERSISTENT;
+   var type = window.TEMPORARY;
    var size = 5*1024*1024;
-   window.requestFileSystem(type, 0, successCallback, errorCallback)
+   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, successCallback, errorCallback)
 
    function successCallback(fs) {
       fs.root.getFile('log2.txt', {create: true, exclusive: true}, function(fileEntry) {
@@ -29,7 +29,7 @@
 }
 
 function writeFile() {
-   var type = LocalFileSystem.PERSISTENT;
+   var type = window.TEMPORARY;
    var size = 5*1024*1024;
    window.requestFileSystem(type, 0, successCallback, errorCallback)
 
@@ -62,7 +62,7 @@ function readFile() {
    window.requestFileSystem(type, size, successCallback, errorCallback)
 
    function successCallback(fs) {
-      fs.root.getFile('log2.txt', {}, function(fileEntry) {
+      fs.root.getFile('log.txt', {}, function(fileEntry) {
 
          fileEntry.file(function(file) {
             var reader = new FileReader();
