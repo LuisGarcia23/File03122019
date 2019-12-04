@@ -31,7 +31,7 @@ function createFile2() {
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 
-alert('file system open: ' + fs.name);
+
 fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
 
     alert("fileEntry is file?" + fileEntry.isFile.toString());
