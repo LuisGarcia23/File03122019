@@ -18,7 +18,7 @@
 
    function successCallback(fs) {
       fs.root.getFile('log.txt', {create: true, exclusive: true}, function(fileEntry) {
-         alert('File creation successfull!')
+         alert('File creation successfull!');
       }, errorCallback);
    }
 
@@ -35,7 +35,7 @@ function successCallback2(fs){
     alert('file system open: ' + fs.name);
 fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
 
-    alert("fileEntry is file?" + fileEntry.isFile.toString())
+    alert("fileEntry is file?" + fileEntry.isFile.toString());
     // fileEntry.name == 'someFile.txt'
     // fileEntry.fullPath == '/someFile.txt'
     },errorCallback2);
