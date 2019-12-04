@@ -28,10 +28,10 @@
 	
 }
 function createFile2() {
+alert("Hola");
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-
-
+alert('file system open: ' + fs.name);
 fs.root.getFile("newPersistentFile.txt", { create: true, exclusive: false }, function (fileEntry) {
 
     alert("fileEntry is file?" + fileEntry.isFile.toString());
@@ -121,7 +121,7 @@ function removeFile() {
     <center>
     <img src="images.png"><br>
     <button id = "createFile" onclick="createFile()">CREATE FILE</button>
-    <button id = "createFile" onclick="createFile2()">CREATE FILE</button><br>
+    <button id = "createFile2" onclick="createFile2()">CREATE FILE2</button><br>
     <button id = "writeFile"  onclick="writeFile()">WRITE FILE</button>
     <button id = "readFile"  onclick="readFile()">READ FILE</button><br>
     <button id = "removeFile"  onclick="removeFile()">DELETE FILE</button><br>
